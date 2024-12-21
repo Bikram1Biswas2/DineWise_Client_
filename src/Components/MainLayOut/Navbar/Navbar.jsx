@@ -5,9 +5,9 @@ import { SiCodechef } from "react-icons/si";
 
 const Navbar = () => {
     const links = <div className="flex flex-col md:flex-col lg:flex-row" id="navbar">
-      <li><NavLink>Home</NavLink></li>
-      <li><NavLink>All Food</NavLink></li>
-      <li><NavLink>Gallery</NavLink></li>
+      <li><NavLink to='/'>Home</NavLink></li>
+      <li><NavLink to='/allFood'>All Food</NavLink></li>
+      <li><NavLink to='/gallery'>Gallery</NavLink></li>
     </div>
     return (
         <div className="navbar bg-base-100 w-11/12 mx-auto">
@@ -40,7 +40,7 @@ const Navbar = () => {
       
         <div className="flex items-center gap-2 text-[#55AD9B]">
         <a className="btn btn-ghost text-2xl font-bold">DineWise</a>
-        <SiCodechef className="h-10 w-10" />
+        <SiCodechef className="h-10 w-10 hidden md:block" />
         </div>
 
         </div>
@@ -49,8 +49,8 @@ const Navbar = () => {
            {links}
           </ul>
         </div>
-        <div className="navbar-end">
-          <a className="btn">Login</a>
+        <div className="navbar-end ">
+          <a className="btn text-[#55AD9B] font-bold">Login</a>
         </div>
       </div>
     );
