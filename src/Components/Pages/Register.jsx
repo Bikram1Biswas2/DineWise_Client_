@@ -1,68 +1,86 @@
 import { Link } from "react-router-dom";
-
+import RegisterJson from "../../assets/Lottie/Register.json";
+import Lottie from "lottie-react";
 
 const Register = () => {
-    return (
-        <div>
-           <div className="card bg-base-100 w-full max-w-lg mx-auto shrink-0 shadow-2xl pl-6 mt-8">
-          <h1 className="text-5xl font-bold p-8 text-[#55AD9B]">Register now!</h1>
-          <form className="card-body">
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-[#55AD9B] text-xl font-semibold">Name</span>
-              </label>
-              <input
-                type="text"
-                placeholder="Name"
-                name="name"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-[#55AD9B] text-xl font-semibold">Email</span>
-              </label>
-              <input
-                type="email"
-                placeholder="email"
-                name="email"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-[#55AD9B] text-xl font-semibold">Photo URL</span>
-              </label>
-              <input
-                type="url"
-                placeholder="Photo URL"
-                name="photo"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text text-[#55AD9B] text-xl font-semibold">Password</span>
-              </label>
-              <input
-                type="password"
-                placeholder="password"
-                name="password"
-                className="input input-bordered"
-                required
-              />
-            </div>
-            <div className="form-control mt-6">
-              <button className="btn bg-[#FF6F61] hover:bg-[#c5433a] text-white text-xl font-bold">Sign Up</button>
-            </div>
-          </form>
-           <p className="text-center py-3">Already Registered ?Please <Link to='/login' className="text-green-400">Login</Link> Now</p>
+  return (
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
+
+      <div className="w-full md:w-1/2 max-w-lg bg-white shadow-lg rounded-lg p-6">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#55AD9B] text-center md:text-left mb-8">
+          Register now!
+        </h1>
+        <form className="space-y-6">
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-[#55AD9B] text-lg font-semibold">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Name"
+              name="name"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-[#55AD9B] text-lg font-semibold">Email</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-[#55AD9B] text-lg font-semibold">Photo URL</span>
+            </label>
+            <input
+              type="url"
+              placeholder="Photo URL"
+              name="photo"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text text-[#55AD9B] text-lg font-semibold">Password</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              className="input input-bordered w-full"
+              required
+            />
+          </div>
+          <div className="form-control">
+            <button className="btn bg-[#FF6F61] hover:bg-[#C5433A] text-white text-lg font-bold w-full">
+              Sign Up
+            </button>
+          </div>
+        </form>
+        <p className="text-center py-4">
+          Already Registered? Please{" "}
+          <Link to="/login" className="text-green-400 font-bold">
+            Login
+          </Link>{" "}
+          Now
+        </p>
+      </div>
+
+      <div className="w-full md:w-1/2 flex justify-center mt-8 md:mt-0">
+        <div className="max-w-sm w-full">
+          <Lottie animationData={RegisterJson} loop={true} />
         </div>
-        </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Register;
