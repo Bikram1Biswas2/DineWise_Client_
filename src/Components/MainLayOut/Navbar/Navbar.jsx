@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 import { SiCodechef } from "react-icons/si";
 
@@ -51,7 +51,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end ">
-          <a className="btn text-[#55AD9B] font-bold">Login</a>
+          <Link to='/login' className="btn text-[#55AD9B] font-bold">Login</Link>
         </div>
       </div>
      </div>

@@ -10,6 +10,8 @@ import ErrorElement from './Components/ErrorElement';
 import Home from './Components/MainLayOut/Home';
 import AllFood from './Components/Pages/AllFood';
 import Gallery from './Components/Pages/Gallery';
+import Login from './Components/Pages/Login';
+import Register from './Components/Pages/Register';
 
 
 const router = createBrowserRouter([
@@ -29,7 +31,15 @@ const router = createBrowserRouter([
      {
       path:'gallery',
       element:<Gallery></Gallery>
-     }
+     },
+     {
+      path:'login',
+      element:<Login></Login>
+     },
+    {
+      path:'register',
+      element:<Register></Register>
+    }
     ]
   },
 ]);
