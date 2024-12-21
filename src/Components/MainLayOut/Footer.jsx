@@ -3,7 +3,7 @@ import { SiCodechef } from "react-icons/si";
 
 const Footer = () => {
     return (
-        <div className=" bg-[#F1F8E8]">
+        <div className=" bg-[#F1F8E8] mt-10">
             <footer className="footer text-base-content border-base-300 border-b px-10 py-4 w-11/12 mx-auto">
   <aside className="grid-flow-col items-center">
      <SiCodechef className="h-20 w-20 text-[#55AD9B]"></SiCodechef>

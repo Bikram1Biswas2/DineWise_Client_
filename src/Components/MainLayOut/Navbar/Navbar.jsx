@@ -10,7 +10,7 @@ const Navbar = () => {
       <li><NavLink to='/gallery'>Gallery</NavLink></li>
     </div>
     return (
-     <div className="bg-[#F1F8E8]">
+     <div className="bg-[#F1F8E8] backdrop-blur-lg bg-opacity-80 fixed top-0 left-0 w-full z-50">
            <div className="navbar  w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
