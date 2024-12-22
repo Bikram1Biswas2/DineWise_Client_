@@ -3,6 +3,7 @@ import LoginJson from "../../assets/Lottie/Login.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {setUser,signInUser} = useContext(AuthContext)
@@ -19,6 +20,7 @@ const Login = () => {
     signInUser(email,password)
     .then((result)=>{
       console.log(result.user);
+      toast.success('Login Successfully')
     })
     .catch(error=>{
       console.log(error.message);

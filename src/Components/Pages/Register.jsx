@@ -3,6 +3,7 @@ import RegisterJson from "../../assets/Lottie/Register.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const {user,createUser} = useContext(AuthContext)
@@ -22,6 +23,7 @@ const Register = () => {
     createUser(email,password)
     .then((result)=>{
       console.log(result.user);
+      toast.success('Register Successfully')
     })
     .catch((error)=>{
       console.log(error.message);
