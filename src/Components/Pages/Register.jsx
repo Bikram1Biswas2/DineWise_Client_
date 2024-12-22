@@ -4,9 +4,10 @@ import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-  const {user,createUser} = useContext(AuthContext)
+  const {setUser,createUser} = useContext(AuthContext)
 
   const handleRegister = e =>{
     e.preventDefault()
@@ -20,14 +21,31 @@ const Register = () => {
     const newUser = {name,email,photo,password}
     console.log(newUser);
 
-    createUser(email,password)
-    .then((result)=>{
-      console.log(result.user);
-      toast.success('Register Successfully')
+    createUser(email, password)
+    .then((result) => {
+      // Update user profile
+      updateProfile(result.user, {
+        displayName: name,
+        photoURL: photo,
+      })
+        .then(() => {
+          setUser({
+            ...result.user,
+            displayName: name,
+            photoURL: photo,
+          });
+          toast.success("Register Successfully!");
+          form.reset();
+        })
+        .catch((error) => {
+          console.error("Error updating profile:", error.message);
+          toast.error("Failed to update profile.");
+        });
     })
-    .catch((error)=>{
-      console.log(error.message);
-    })
+    .catch((error) => {
+      console.error("Error creating user:", error.message);
+      toast.error("Failed to register.");
+    });
   }
 
   return (

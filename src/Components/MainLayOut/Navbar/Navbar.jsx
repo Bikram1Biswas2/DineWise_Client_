@@ -1,9 +1,14 @@
 import { Link, NavLink } from "react-router-dom";
 import './Navbar.css'
 import { SiCodechef } from "react-icons/si";
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 
 const Navbar = () => {
+
+  const {user,logOut} = useContext(AuthContext)
+
     const links = <div className="flex flex-col md:flex-col lg:flex-row" id="navbar">
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/allFood'>All Food</NavLink></li>
@@ -51,7 +56,32 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end ">
-          <Link to='/login' className="btn text-[#55AD9B] font-bold">Login</Link>
+        {user ? (
+          <>
+            {user.photoURL && (
+              <div className="avatar">
+                <div
+                  className="ring-primary ring-offset-base-100 w-12 rounded-full ring ring-offset-2 mr-2"
+                  data-tooltip-id="user-tooltip"
+                  data-tooltip-html={`<div style=\"max-width: 200px; text-align: left;\">
+                    <b>UserName: ${user.displayName}</b><br/>
+                    <small>User Photo URL: ${user.photoURL}</small>
+                  </div>`}
+                >
+                  <img  referrerPolicy="no-referrer" src={user.photoURL} alt="User Avatar" />
+                </div>
+              </div>
+            )}
+           
+            <button onClick={logOut} className="btn">
+              Logout
+            </button>
+          </>
+        ) : (
+          <Link to="/login" className="btn">
+            Login
+          </Link>
+        )}
         </div>
       </div>
      </div>
