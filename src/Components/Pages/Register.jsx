@@ -7,7 +7,7 @@ const Register = () => {
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
 
       <div className="w-full md:w-1/2 max-w-lg bg-white shadow-lg rounded-lg p-6">
-        <h1 className="text-4xl md:text-5xl font-bold text-[#55AD9B] text-center md:text-left mb-8">
+        <h1 className="text-4xl md:text-5xl font-bold text-[#FF6F61] text-center md:text-left mb-8">
           Register now!
         </h1>
         <form className="space-y-6">
