@@ -3,6 +3,17 @@ import LoginJson from "../../assets/Lottie/Login.json";
 import Lottie from "lottie-react";
 
 const Login = () => {
+
+  const handleLogin = e =>{
+    e.preventDefault()
+    const form = e.target 
+    const email = form.email.value
+    const password = form.password.value 
+
+    const login = {email,password}
+    console.log(login);
+  }
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
 
@@ -10,7 +21,7 @@ const Login = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-[#55AD9B] text-center md:text-left mb-8">
           Login now!
         </h1>
-        <form className="space-y-6">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div className="form-control">
             <label className="label">
               <span className="label-text text-[#55AD9B] text-lg font-semibold">
