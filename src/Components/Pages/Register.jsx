@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import RegisterJson from "../../assets/Lottie/Register.json";
 import Lottie from "lottie-react";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Register = () => {
+  const {user,createUser} = useContext(AuthContext)
 
   const handleRegister = e =>{
     e.preventDefault()
@@ -11,7 +14,18 @@ const Register = () => {
     const email = form.email.value 
     const photo = form.photo.value 
     const password = form.password.value 
-    console.log({name,email,photo,password});
+
+
+    const newUser = {name,email,photo,password}
+    console.log(newUser);
+
+    createUser(email,password)
+    .then((result)=>{
+      console.log(result.user);
+    })
+    .catch((error)=>{
+      console.log(error.message);
+    })
   }
 
   return (
