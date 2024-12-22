@@ -4,7 +4,15 @@ import Lottie from "lottie-react";
 
 const Register = () => {
 
-  
+  const handleRegister = e =>{
+    e.preventDefault()
+    const form =e.target
+    const name = form.name.value 
+    const email = form.email.value 
+    const photo = form.photo.value 
+    const password = form.password.value 
+    console.log({name,email,photo,password});
+  }
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
@@ -13,7 +21,7 @@ const Register = () => {
         <h1 className="text-4xl md:text-5xl font-bold text-[#FF6F61] text-center md:text-left mb-8">
           Register now!
         </h1>
-        <form className="space-y-6">
+        <form onSubmit={handleRegister} className="space-y-6">
           <div className="form-control">
             <label className="label">
               <span className="label-text text-[#55AD9B] text-lg font-semibold">Name</span>
