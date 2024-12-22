@@ -1,25 +1,50 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
 
-  const handleAddFood = e =>{
-    e.preventDefault()
+  const baseURL = import.meta.env.VITE_base_URL;
 
-    const form = e.target 
-    const foodName = form.foodName.value
-    const foodImage = form.foodImage.value
-    const foodCategory = form.foodCategory.value
-    const quantity = form.quantity.value
-    const price = form.price.value
-    const foodOrigin = form.foodOrigin.value
-    const description = form.description.value
+  const handleAddFood = async(e) => {
+    e.preventDefault();
 
-    const newFood = {foodName,foodImage,foodCategory,quantity,price,foodOrigin,description}
+    const form = e.target;
+    const foodName = form.foodName.value;
+    const foodImage = form.foodImage.value;
+    const foodCategory = form.foodCategory.value;
+    const quantity = form.quantity.value;
+    const price = form.price.value;
+    const foodOrigin = form.foodOrigin.value;
+    const description = form.description.value;
+
+    const newFood = {
+      foodName,
+      foodImage,
+      foodCategory,
+      quantity,
+      price,
+      foodOrigin,
+      description,
+      userName: user?.displayName,
+      userEmail: user?.email,
+    };
     console.log(newFood);
 
-  }
+    try{
+        const response = await axios.post(`${baseURL}/foods`,newFood)
+        if(response.data.insertedId){
+            toast.success('Food added Successfully')
+        }else{
+            toast.error('Failed to add Food')
+        }
+    }catch(error){
+        console.error(error)
+    }
+
+  };
 
   return (
     <div className="w-7/12 mx-auto">
