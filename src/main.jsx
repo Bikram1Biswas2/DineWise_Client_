@@ -10,6 +10,7 @@ import Gallery from "./Components/Pages/Gallery";
 import Login from "./Components/Pages/Login";
 import Register from "./Components/Pages/Register";
 import AuthProvider from "./Components/Provider/AuthProvider";
+import AddFood from "./Components/Pages/AddFood";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <Home></Home>,
+      },
+      {
+         path:'addFood',
+         element:<AddFood></AddFood>
       },
       {
         path: "allFood",

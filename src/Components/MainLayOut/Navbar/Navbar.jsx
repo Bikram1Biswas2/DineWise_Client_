@@ -13,6 +13,7 @@ const Navbar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/allFood'>All Food</NavLink></li>
       <li><NavLink to='/gallery'>Gallery</NavLink></li>
+      <li><NavLink to='/addFood'>Add Food</NavLink></li>
     </div>
     return (
      <div className="bg-[#F1F8E8] backdrop-blur-lg bg-opacity-80 fixed top-0 left-0 w-full z-50">
