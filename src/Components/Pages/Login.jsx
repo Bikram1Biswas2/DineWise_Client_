@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LoginJson from "../../assets/Lottie/Login.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
@@ -7,7 +7,11 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const {setUser,signInUser,googleLogin} = useContext(AuthContext)
+
+    const from = location?.state?.from?.pathname || '/'
 
   const handleLogin = e =>{
     e.preventDefault()
@@ -21,6 +25,7 @@ const Login = () => {
     signInUser(email,password)
     .then((result)=>{
       setUser(result.user);
+      navigate(from)
       toast.success('Login Successfully')
     })
     .catch(error=>{
@@ -33,6 +38,7 @@ const Login = () => {
     googleLogin()
     .then(result=>{
       setUser(result.user)
+      navigate(from)
       toast.success('Google Login Successfully')
     })
     .catch((error)=>{

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterJson from "../../assets/Lottie/Register.json";
 import Lottie from "lottie-react";
 import { useContext } from "react";
@@ -7,7 +7,11 @@ import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const navigate = useNavigate()
+  const location = useLocation()
   const {setUser,createUser} = useContext(AuthContext)
+
+  const from = location?.state?.from?.pathname || '/'
 
   const handleRegister = e =>{
     e.preventDefault()
@@ -34,6 +38,7 @@ const Register = () => {
             displayName: name,
             photoURL: photo,
           });
+          navigate(from)
           toast.success("Register Successfully!");
           form.reset();
         })
