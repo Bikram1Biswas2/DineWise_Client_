@@ -3,6 +3,9 @@ import RegisterJson from "../../assets/Lottie/Register.json";
 import Lottie from "lottie-react";
 
 const Register = () => {
+
+  
+
   return (
     <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
 
