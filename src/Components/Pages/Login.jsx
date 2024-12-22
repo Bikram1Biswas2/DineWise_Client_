@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import LoginJson from "../../assets/Lottie/Login.json";
 import Lottie from "lottie-react";
+import { useContext } from "react";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const Login = () => {
+  const {setUser,signInUser} = useContext(AuthContext)
 
   const handleLogin = e =>{
     e.preventDefault()
@@ -12,6 +15,14 @@ const Login = () => {
 
     const login = {email,password}
     console.log(login);
+
+    signInUser(email,password)
+    .then((result)=>{
+      console.log(result.user);
+    })
+    .catch(error=>{
+      console.log(error.message);
+    })
   }
 
   return (
