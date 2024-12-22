@@ -11,6 +11,7 @@ import Login from "./Components/Pages/Login";
 import Register from "./Components/Pages/Register";
 import AuthProvider from "./Components/Provider/AuthProvider";
 import AddFood from "./Components/Pages/AddFood";
+import SingleFoodPage from "./Components/Pages/SingleFoodPage";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
       {
         path: "gallery",
         element: <Gallery></Gallery>,
+      },
+      {
+        path:'singleFoodPage/:id',
+        element:<SingleFoodPage></SingleFoodPage>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`)
       },
       {
         path: "login",

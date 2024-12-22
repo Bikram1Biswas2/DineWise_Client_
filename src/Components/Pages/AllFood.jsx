@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllFood = () => {
     const foods = useLoaderData();
@@ -33,15 +33,12 @@ const AllFood = () => {
                 <span className="text-lg font-semibold text-[#0D7C66]">Price: ${food.price}</span>
               </div>
             </div>
-  
-            {/* Details Button */}
             <div className="mt-4">
-              <button
-                className="w-full bg-[#41B3A2] text-white py-2 rounded-md font-semibold hover:bg-[#0D7C66] transition-all"
-                onClick={() => navigate(`/food/${food._id}`)} // navigate to the food details page
+              <Link to={`/singleFoodPage/${food._id}`}
+                className="w-full btn bg-[#41B3A2] text-white py-2 rounded-md font-semibold hover:bg-[#0D7C66] transition-all"
               >
                 View Details
-              </button>
+              </Link>
             </div>
           </div>
         ))}
