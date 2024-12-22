@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
-  const {setUser,signInUser} = useContext(AuthContext)
+  const {setUser,signInUser,googleLogin} = useContext(AuthContext)
 
   const handleLogin = e =>{
     e.preventDefault()
@@ -20,11 +20,24 @@ const Login = () => {
 
     signInUser(email,password)
     .then((result)=>{
-      console.log(result.user);
+      setUser(result.user);
       toast.success('Login Successfully')
     })
     .catch(error=>{
       console.log(error.message);
+      toast.error('Login Failed')
+    })
+  }
+
+  const handleGoogleLogin = () =>{
+    googleLogin()
+    .then(result=>{
+      setUser(result.user)
+      toast.success('Google Login Successfully')
+    })
+    .catch((error)=>{
+      console.log(error.message);
+      toast.error('Google Login Failed')
     })
   }
 
@@ -84,7 +97,7 @@ const Login = () => {
         </p>
 
         <div className="divider">OR</div>
-        <button className="btn btn-outline w-full text-xl font-bold"><FcGoogle className="w-7 h-7"/>Google Login</button>
+        <button onClick={handleGoogleLogin} className="btn btn-outline w-full text-xl font-bold"><FcGoogle className="w-7 h-7"/>Google Login</button>
       </div>
 
 

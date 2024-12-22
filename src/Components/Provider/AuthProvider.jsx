@@ -1,11 +1,11 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { createContext } from "react";
 import { auth } from "../firebase/firebase.config";
 import { Toaster } from "react-hot-toast";
 
 export const AuthContext = createContext(null)
-
+const googleProvider = new GoogleAuthProvider()
 
 const AuthProvider = ({children}) => {
 
@@ -22,13 +22,18 @@ const AuthProvider = ({children}) => {
         return signInWithEmailAndPassword(auth,email,password)
     }
 
+    const googleLogin = () =>{
+        return signInWithPopup(auth,googleProvider)
+    }
+
 
     const authInfo = {
          user,
          loading,
          setUser,
          createUser,
-         signInUser
+         signInUser,
+         googleLogin
     }
 
     return (
