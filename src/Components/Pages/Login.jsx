@@ -4,6 +4,7 @@ import Lottie from "lottie-react";
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const {setUser,signInUser} = useContext(AuthContext)
@@ -81,6 +82,9 @@ const Login = () => {
           </Link>{" "}
           First
         </p>
+
+        <div className="divider">OR</div>
+        <button className="btn btn-outline w-full text-xl font-bold"><FcGoogle className="w-7 h-7"/>Google Login</button>
       </div>
 
 
