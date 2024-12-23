@@ -32,13 +32,13 @@ const Navbar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/allFood'>All Food</NavLink></li>
       <li><NavLink to='/gallery'>Gallery</NavLink></li>
-     
     </div>
   );
 
   return (
     <div className="bg-[#F1F8E8] backdrop-blur-lg bg-opacity-80 fixed top-0 left-0 w-full z-50">
       <div className="navbar w-11/12 mx-auto">
+        {/* Navbar Start */}
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -72,15 +72,18 @@ const Navbar = () => {
           </div>
         </div>
 
+        {/* Navbar Center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             {links}
           </ul>
         </div>
 
-        <div className="navbar-end">
+        {/* Navbar End */}
+        <div className="navbar-end flex items-center gap-4">
           {user ? (
-            <div className="relative" ref={dropdownRef}>
+            <div className="relative flex items-center gap-4" ref={dropdownRef}>
+              {/* User Profile */}
               {user.photoURL && (
                 <div
                   className="avatar cursor-pointer"
@@ -96,8 +99,17 @@ const Navbar = () => {
                 </div>
               )}
 
+              {/* Logout Button for md and lg screens */}
+              <button
+                onClick={logOut}
+                className="hidden md:block btn btn-secondary"
+              >
+                Logout
+              </button>
+
+              {/* Dropdown for sm screens */}
               {dropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-white shadow-md rounded-lg z-50">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-md rounded-lg z-50">
                   <ul className="py-2">
                     <li>
                       <Link
@@ -123,10 +135,11 @@ const Navbar = () => {
                         My Orders
                       </Link>
                     </li>
+                    {/* Logout Button for sm screens */}
                     <li>
                       <button
                         onClick={logOut}
-                        className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                        className="block md:hidden w-full text-left px-4 py-2 hover:bg-gray-100"
                       >
                         Logout
                       </button>
@@ -136,7 +149,7 @@ const Navbar = () => {
               )}
             </div>
           ) : (
-            <Link to="/login" className="btn">
+            <Link to="/login" className="btn bg-[#55AD9B]">
               Login
             </Link>
           )}
