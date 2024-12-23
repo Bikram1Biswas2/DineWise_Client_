@@ -12,6 +12,7 @@ import Register from "./Components/Pages/Register";
 import AuthProvider from "./Components/Provider/AuthProvider";
 import AddFood from "./Components/Pages/AddFood";
 import SingleFoodPage from "./Components/Pages/SingleFoodPage";
+import FoodPurchase from "./Components/Pages/FoodPurchase";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,11 @@ const router = createBrowserRouter([
       {
         path:'singleFoodPage/:id',
         element:<SingleFoodPage></SingleFoodPage>,
+        loader:({params})=>fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`)
+      },
+      {
+        path:'foodPurchase/:id',
+        element:<FoodPurchase></FoodPurchase>,
         loader:({params})=>fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`)
       },
       {

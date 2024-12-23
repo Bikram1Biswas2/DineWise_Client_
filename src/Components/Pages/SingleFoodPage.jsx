@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const SingleFoodPage = () => {
   const food = useLoaderData(); 
@@ -50,11 +50,11 @@ const SingleFoodPage = () => {
 
 
       <div className="flex justify-center">
-        <button
-          className="bg-[#41B3A2] text-white py-3 px-8 rounded-md font-semibold hover:bg-[#0D7C66] transition-all"
+        <Link to={`/foodPurchase/${food._id}`}
+          className="bg-[#41B3A2] text-white btn py-3 px-8 rounded-md font-semibold hover:bg-[#0D7C66] transition-all"
         >
           Purchase
-        </button>
+        </Link>
       </div>
     </div>
   );
