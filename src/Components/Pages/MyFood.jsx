@@ -36,12 +36,15 @@ const MyFood = () => {
 
     return (
         <div className="w-11/12 mx-auto">
-        <h2 className="text-2xl font-bold mb-4">My Food</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center mt-8 text-[#55AD9B]">My Added Foods</h2>
         <div className="overflow-x-auto">
           <table className="table">
             {/* head */}
             <thead>
               <tr>
+            
+                <th></th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Price</th>
@@ -57,9 +60,9 @@ const MyFood = () => {
                   </td>
                 </tr>
               ) : (
-                myFood.map((food) => (
-                  <tr key={food._id}>
-              
+                myFood.map((food,index) => (
+                  <tr key={food._id} index={index}>
+                    <td>{index+1}</td>
                     <td>
                       <div className="flex items-center gap-3">
                         <div className="avatar">
@@ -73,10 +76,11 @@ const MyFood = () => {
                         
                       </div>
                     </td>
+                    <td>{food.foodName}</td>
                     <td>{food.foodCategory}</td>
                     <td>${food.price}</td>
                     <th>
-                      <Link className="text-fuchsia-600 btn-md h-6"><GrDocumentUpdate /></Link>
+                      <Link to={`/updateFood/${food._id}`} className="text-fuchsia-600 btn-md h-6"><GrDocumentUpdate /></Link>
                     </th>
                   </tr>
                 ))
