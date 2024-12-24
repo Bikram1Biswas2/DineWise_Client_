@@ -1,47 +1,72 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import moment from "moment";
-import { FaTrashAlt } from "react-icons/fa"; // Trash icon
-import { AuthContext } from "../Provider/AuthProvider"; // Import Auth Context
+import { FaTrashAlt } from "react-icons/fa"; 
+import { AuthContext } from "../Provider/AuthProvider"; 
+import Swal from "sweetalert2";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
-  const { user } = useContext(AuthContext); // Get the logged-in user's email
+  const { user } = useContext(AuthContext); 
 
-  // Fetch orders when the component loads
   useEffect(() => {
     const fetchOrders = async () => {
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_base_URL}/myOrders/${user?.email}`
         );
-        setOrders(response.data); // Update state with fetched orders
+        setOrders(response.data);
       } catch (error) {
         console.error("Error fetching orders:", error);
       }
     };
 
     if (user?.email) {
-      fetchOrders(); // Fetch orders only if user email exists
+      fetchOrders(); 
     }
   }, [user?.email]);
 
-  // Handle delete order (optional)
   const handleDelete = async (orderId) => {
     try {
-      await axios.delete(
-        `${import.meta.env.VITE_base_URL}/purchase/${orderId}`
-      );
-      setOrders(orders.filter((order) => order._id !== orderId)); // Remove the deleted order
+    
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to Delete this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!"
+      });
+  
+      // If the user confirmed the deletion
+      if (result.isConfirmed) {
+        const response = await axios.delete(
+          `${import.meta.env.VITE_base_URL}/purchase/${orderId}`
+        );
+
+        if (response.status === 204) {
+          setOrders(orders.filter((order) => order._id !== orderId));
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your order has been deleted.",
+            icon: "success"
+          });
+        } else {
+          toast.error("Failed to delete the order.");
+        }
+      }
     } catch (error) {
       console.error("Error deleting order:", error);
+      toast.error("Failed to delete the order.");
     }
   };
+  
+  
 
   return (
     <div className="w-11/12 mx-auto mt-10">
       <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
-        My Orders
+        My Orders: {orders.length}
       </h2>
       {orders.length === 0 ? (
         <p className="text-center text-gray-600">You have no orders yet.</p>
@@ -65,7 +90,7 @@ const MyOrders = () => {
                 <td className="p-4">{order.buyingDate}</td>
                 <td className="p-4">
                   <button
-                    onClick={() => handleDelete(order._id)}
+                    onClick={() =>handleDelete(order._id)}
                     className="text-red-500 hover:text-red-700 transition"
                   >
                     <FaTrashAlt />

@@ -8,7 +8,7 @@ const SingleFoodPage = () => {
   }
 
   return (
-    <div className="single-food-page bg-[#BDE8CA] p-8 max-w-4xl mx-auto rounded-lg shadow-lg">
+    <div className="single-food-page bg-[#bde8ca78] p-8 max-w-4xl mx-auto rounded-lg shadow-lg">
       {/* Food Name and Category */}
       <div className="text-center mb-6">
         <h2 className="text-4xl font-bold text-[#0D7C66]">{food.foodName}</h2>
