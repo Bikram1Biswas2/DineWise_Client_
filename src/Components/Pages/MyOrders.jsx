@@ -7,9 +7,11 @@ import Swal from "sweetalert2";
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const { user } = useContext(AuthContext); 
+  const [loading,setLoading] = useState(true)
 
   useEffect(() => {
     const fetchOrders = async () => {
+        setLoading(true)
       try {
         const response = await axios.get(
           `${import.meta.env.VITE_base_URL}/myOrders/${user?.email}`
@@ -17,11 +19,15 @@ const MyOrders = () => {
         setOrders(response.data);
       } catch (error) {
         console.error("Error fetching orders:", error);
+      }finally{
+        setLoading(false)
       }
     };
 
     if (user?.email) {
       fetchOrders(); 
+    }else{
+        setLoading(false)
     }
   }, [user?.email]);
 
@@ -60,6 +66,10 @@ const MyOrders = () => {
       toast.error("Failed to delete the order.");
     }
   };
+
+  if(loading){
+return <span className="loading loading-bars loading-lg"></span>
+  }
   
   
 
