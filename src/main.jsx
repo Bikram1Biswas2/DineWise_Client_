@@ -16,6 +16,7 @@ import FoodPurchase from "./Components/Pages/FoodPurchase";
 import MyFood from "./Components/Pages/MyFood";
 import MyOrders from "./Components/Pages/MyOrders";
 import UpdatePage from "./Components/Pages/UpdatePage";
+import TopFood from "./Components/MainLayOut/TopFood";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
         path: "allFood",
         element: <AllFood></AllFood>,
         loader:()=>fetch(`${import.meta.env.VITE_base_URL}/foods`)
+      },
+      {
+        path:'topFood',
+        element:<TopFood></TopFood>
       },
       {
         path: "gallery",
