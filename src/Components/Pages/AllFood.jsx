@@ -8,8 +8,8 @@ const AllFood = () => {
         {foods.map((food) => (
           <div
             key={food._id}
-            className="bg-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
-            style={{ backgroundColor: '#BDE8CA' }} 
+            className=" rounded-lg shadow-lg p-4 flex flex-col justify-between bg-[#bde8ca6a]"
+            //style={{ backgroundColor: '#BDE8CA' }} 
           >
             {/* Card Image */}
             <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">

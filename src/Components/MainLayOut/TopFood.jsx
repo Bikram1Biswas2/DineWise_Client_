@@ -29,10 +29,10 @@ const TopFood = () => {
         {topFoods.map((food) => (
           <div
             key={food._id}
-            className="bg-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
-            style={{ backgroundColor: '#BDE8CA' }} 
+            className=" rounded-lg shadow-lg p-4 flex flex-col justify-between bg-[#c8edd357]"
+            //style={{ backgroundColor: '#BDE8CA' }} 
           >
-            {/* Card Image */}
+
             <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
               <img
                 src={food.foodImage}
@@ -41,7 +41,7 @@ const TopFood = () => {
               />
             </div>
 
-            {/* Food Info */}
+      
             <div className="flex flex-col">
               <h3 className="text-xl font-semibold text-[#0D7C66] mb-2">
                 {food.foodName}
@@ -50,7 +50,7 @@ const TopFood = () => {
                 Category: {food.foodCategory}
               </p>
 
-              {/* Quantity */}
+      
               <div className="flex justify-between items-center">
                 <span className="text-lg font-semibold text-[#0D7C66]">
                   Sold: {food.purchaseCount}
