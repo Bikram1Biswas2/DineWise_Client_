@@ -1,16 +1,18 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import RegisterJson from "../../assets/Lottie/Register.json";
 import Lottie from "lottie-react";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const navigate = useNavigate()
   const location = useLocation()
   const {setUser,createUser} = useContext(AuthContext)
+  const [showPassword,setShowPassword] = useState(false)
 
   const from = location?.state?.from?.pathname || '/'
 
@@ -109,17 +111,16 @@ const Register = () => {
               required
             />
           </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
-              <span className="label-text text-[#55AD9B] text-lg font-semibold">Password</span>
+              <span className="label-text">Password</span>
             </label>
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              className="input input-bordered w-full"
-              required
-            />
+            <input type={showPassword ? "text" : "password"}
+            name="password" 
+            placeholder="password" className="input input-bordered" required />
+              <button type="button" onClick={()=>setShowPassword(!showPassword)} className="absolute bottom-4 right-4">
+                 {showPassword ? <FaEyeSlash />: <FaEye />}
+                 </button>
           </div>
           <div className="form-control">
             <button className="btn bg-[#FF6F61] hover:bg-[#C5433A] text-white text-lg font-bold w-full">
