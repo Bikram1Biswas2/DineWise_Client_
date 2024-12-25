@@ -4,6 +4,7 @@ import { FaTrashAlt } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
@@ -73,6 +74,9 @@ const MyOrders = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-10">
+        <Helmet>
+            <title>DineWise | MyOrders</title>
+        </Helmet>
       <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
         My Orders: {orders.length}
       </h2>
@@ -80,7 +84,7 @@ const MyOrders = () => {
         <p className="text-center text-gray-600">You have no orders yet.</p>
       ) : (
         <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse bg-white shadow-lg text-sm">
+          <table className="min-w-full border-collapse bg-white dark:bg-black shadow-lg text-sm">
             <thead>
               <tr className="bg-[#55AD9B] text-white">
                 <th className="p-4">Name</th>
@@ -92,7 +96,7 @@ const MyOrders = () => {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order._id} className="border-b">
+                <tr key={order._id} className="border-b ">
                   <td className="p-4">{order.foodName}</td>
                   <td className="p-4">${order.price}</td>
                   <td className="p-4">{order.buyerName}</td>

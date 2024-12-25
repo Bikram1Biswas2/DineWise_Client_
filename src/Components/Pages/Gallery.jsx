@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
@@ -28,6 +29,9 @@ const Gallery = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>DineWise | Gallery</title>
+      </Helmet>
 
         <div>
 <div

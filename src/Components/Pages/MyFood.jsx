@@ -4,6 +4,7 @@ import axios from "axios";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { Link } from "react-router-dom";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const MyFood = () => {
   const { user } = useContext(AuthContext);
@@ -37,6 +38,9 @@ const MyFood = () => {
 
   return (
     <div className="w-11/12 mx-auto">
+        <Helmet>
+            <title>DineWise | MyFood</title>
+        </Helmet>
       <h2 className="text-2xl font-bold mb-4 text-center mt-8 text-[#55AD9B]">
         My Added Foods
       </h2>

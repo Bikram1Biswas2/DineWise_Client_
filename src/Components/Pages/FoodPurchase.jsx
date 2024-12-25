@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const FoodPurchase = () => {
   const food = useLoaderData(); 
@@ -48,6 +49,9 @@ const FoodPurchase = () => {
 
   return (
     <div className="purchase-page bg-[#EFEFEF] p-8 max-w-2xl mx-auto rounded-lg shadow-lg">
+        <Helmet>
+            <title>DineWise | FoodPurchase</title>
+        </Helmet>
       <h2 className="text-3xl font-bold text-[#0D7C66] mb-4">
         Purchase {food.foodName}
       </h2>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData } from "react-router-dom";
 
 const AllFood = () => {
@@ -19,6 +20,9 @@ const AllFood = () => {
 
   return (
     <div>
+        <Helmet>
+            <title>DineWise | AllFood</title>
+        </Helmet>
       <div>
         <div
           className="hero min-h-40"

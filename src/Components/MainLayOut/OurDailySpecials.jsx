@@ -15,8 +15,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
         <GiKnifeFork className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Daily Fresh Menus</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Daily Fresh Menus</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
           Discover a new, delicious meal every day with our Daily Fresh Menus,
           crafted by DineWise's creative chefs using the finest seasonal
           ingredients
@@ -28,8 +28,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
         <GiFruitBowl className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Fresh Ingredients</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Fresh Ingredients</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
         Experience the goodness of Fresh Ingredients, handpicked to ensure every meal is bursting with flavor. At DineWise, we believe healthy food starts with the best seasonal produce.
         </p>
         </div>
@@ -39,8 +39,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
       <GiHotMeal className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Tasty Meals</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Tasty Meals</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
         Delight in our Tasty Meals, where every bite is a perfect balance of flavor and nourishment. DineWise serves up delicious dishes that make healthy eating a true pleasure!
         </p>
         </div>
@@ -50,8 +50,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
       <PiChefHat className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Creative Chef</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Creative Chef</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
         Meet our Creative Chefs who bring passion and innovation to every dish. At DineWise, we transform fresh ingredients into unforgettable culinary experiences!
         </p>
         </div>
@@ -61,8 +61,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
       <TbSoup className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Satisfying Soups</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Satisfying Soups</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
         Warm up with our Satisfying Soups, made with fresh, seasonal vegetables and savory broths. DineWise's soups are the perfect comfort food to brighten your day.
         </p>
         </div>
@@ -72,8 +72,8 @@ const OurDailySpecials = () => {
       <div className="text-center space-y-3">
       <LuSalad className="w-14 h-14 mx-auto text-[#640D5F]" />
         <div>
-             <h2 className="font-mono text-2xl text-[#D91656]">Healthy Salads</h2>
-        <p className="font-serif text-[#EB5B00]">
+             <h2 className="font-mono text-2xl text-[#D91656] dark:text-white">Healthy Salads</h2>
+        <p className="font-serif text-gray-400 dark:text-white">
         Enjoy our Healthy Salads, filled with vibrant, fresh ingredients and nourishing flavors. DineWise's salads are perfect for a light yet satisfying meal anytime.
         </p>
         </div>

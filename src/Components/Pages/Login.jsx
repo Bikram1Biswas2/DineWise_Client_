@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const navigate = useNavigate()
@@ -48,9 +49,12 @@ const Login = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4 dark:bg-black">
+      <Helmet>
+        <title>DineWise | Login</title>
+      </Helmet>
 
-      <div className="w-full md:w-1/2 max-w-lg bg-white shadow-lg rounded-lg p-6">
+      <div className="w-full md:w-1/2 max-w-lg bg-white dark:bg-black shadow-lg rounded-lg p-6">
         <h1 className="text-4xl md:text-5xl font-bold text-[#55AD9B] text-center md:text-left mb-8">
           Login now!
         </h1>

@@ -19,6 +19,7 @@ const TopFood = () => {
 
   return (
     <div className="w-11/12 mx-auto mt-10 dark:text-white">
+     
       <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
         Top Selling Foods
       </h2>

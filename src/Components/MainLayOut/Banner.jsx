@@ -23,7 +23,7 @@ const Banner = () => {
               }}
             />
           </h1>
-          <p className="mb-5 text-gray-200 text-lg">
+          <p className="mb-5 text-gray-200 text-lg dark:text-white">
             "Discover delicious meals, crafted with love and fresh ingredients.
             Your next culinary adventure starts here!"
           </p>

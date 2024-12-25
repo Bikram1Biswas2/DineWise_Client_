@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 import { updateProfile } from "firebase/auth";
 import Swal from "sweetalert2";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const navigate = useNavigate()
@@ -68,9 +69,12 @@ const Register = () => {
   }
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100 dark:bg-black p-4">
+      <Helmet>
+        DineWise | Register
+      </Helmet>
 
-      <div className="w-full md:w-1/2 max-w-lg bg-white shadow-lg rounded-lg p-6">
+      <div className="w-full md:w-1/2 max-w-lg bg-white dark:bg-black shadow-lg rounded-lg p-6">
         <h1 className="text-4xl md:text-5xl font-bold text-[#FF6F61] text-center md:text-left mb-8">
           Register now!
         </h1>

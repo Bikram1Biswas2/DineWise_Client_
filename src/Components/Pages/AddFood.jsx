@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
@@ -50,6 +51,9 @@ const AddFood = () => {
 
   return (
     <div className="w-7/12 mx-auto">
+      <Helmet>
+            <title>DineWise | AddFood</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center my-7 underline text-[#55AD9B]">
         Add Food
       </h2>

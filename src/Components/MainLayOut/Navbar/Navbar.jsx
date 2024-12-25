@@ -76,8 +76,8 @@ const Navbar = () => {
             </ul>
           </div>
 
-          <div className="flex items-center gap-2 text-[#55AD9B]">
-            <a className="btn btn-ghost text-2xl font-bold">DineWise</a>
+          <div className="flex items-center gap-2 text-[#55AD9B] ">
+            <a className="btn btn-ghost text-2xl font-bold ">DineWise</a>
             <SiCodechef className="h-10 w-10 hidden md:block" />
           </div>
         </div>
@@ -123,7 +123,7 @@ const Navbar = () => {
 
               {/* Dropdown for sm screens */}
               {dropdownOpen && (
-                <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-md rounded-lg z-50">
+                <div className="absolute top-full right-0 mt-2 w-48 bg-white shadow-md rounded-lg z-50 dark:text-black dark:bg-slate-400">
                   <ul className="py-2">
                     <li>
                       <Link
@@ -163,7 +163,7 @@ const Navbar = () => {
               )}
             </div>
           ) : (
-            <Link to="/login" className="btn bg-[#55AD9B] ">
+            <Link to="/login" className="btn bg-[#55AD9B] font-bold text-lg dark:text-white">
               Login
             </Link>
           )}

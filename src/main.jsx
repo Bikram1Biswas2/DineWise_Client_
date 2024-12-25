@@ -19,6 +19,7 @@ import UpdatePage from "./Components/Pages/UpdatePage";
 import TopFood from "./Components/MainLayOut/TopFood";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import ThemeProvider from "./Components/Provider/ThemeProvider";
+import { HelmetProvider } from "react-helmet-async";
 
 const router = createBrowserRouter([
   {
@@ -102,9 +103,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <ThemeProvider>
-      <AuthProvider>
-        <RouterProvider router={router} />
-      </AuthProvider>
+      <HelmetProvider>
+        <AuthProvider>
+          <RouterProvider router={router} />
+        </AuthProvider>
+      </HelmetProvider>
     </ThemeProvider>
   </StrictMode>
 );
