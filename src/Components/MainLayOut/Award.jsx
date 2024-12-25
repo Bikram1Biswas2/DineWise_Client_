@@ -7,7 +7,7 @@ const Award = () => {
         <div className="mt-10 w-11/12 mx-auto">
            <div className="text-center space-y-3">
            <h2 className="text-3xl font-bold text-[#79D7BE] underline">Our Awards</h2>
-           <p className="text-lg text-[#9694FF]">At DineWise, we take pride in our dedication to quality and creativity, earning recognition for our exceptional culinary experiences. Our awards reflect our commitment to delivering the best meals crafted with passion and precision.</p>
+           <p className="text-lg text-gray-500">At DineWise, we take pride in our dedication to quality and creativity, earning recognition for our exceptional culinary experiences. Our awards reflect our commitment to delivering the best meals crafted with passion and precision.</p>
            </div>
            <div className="mx-auto mt-5">
             <div className="grid sm:gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 w-9/12 mx-auto">

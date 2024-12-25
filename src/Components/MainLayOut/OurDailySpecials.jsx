@@ -8,7 +8,7 @@ const OurDailySpecials = () => {
     <div className="mt-10 w-11/12 mx-auto">
         <div className="text-center space-y-3">
             <h2 className="text-3xl font-bold text-[#79D7BE] underline">Our Daily Specials</h2>
-            <p className="text-lg text-[#9694FF]">Indulge in our Daily Specials, where every dish is crafted with fresh, seasonal ingredients. Let DineWise's creative chefs surprise you with a new, mouthwatering meal every day!</p>
+            <p className="text-lg text-gray-400">Indulge in our Daily Specials, where every dish is crafted with fresh, seasonal ingredients. Let DineWise's creative chefs surprise you with a new, mouthwatering meal every day!</p>
         </div>
      <div className="grid gap-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-6">
          {/* one */}

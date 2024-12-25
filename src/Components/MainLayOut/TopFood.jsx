@@ -18,11 +18,11 @@ const TopFood = () => {
   }, []);
 
   return (
-    <div className="w-11/12 mx-auto mt-10">
+    <div className="w-11/12 mx-auto mt-10 dark:text-white">
       <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
         Top Selling Foods
       </h2>
-      <p className="text-lg text-[#9694FF] text-center">
+      <p className="text-lg text-gray-400 text-center">
         Explore our Top Selling Foods, handpicked based on customer favorites and highest purchase counts, showcasing the best flavors just for you!
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
@@ -43,19 +43,19 @@ const TopFood = () => {
 
       
             <div className="flex flex-col">
-              <h3 className="text-xl font-semibold text-[#0D7C66] mb-2">
+              <h3 className="text-xl font-semibold text-[#0D7C66] mb-2 dark:text-white">
                 {food.foodName}
               </h3>
-              <p className="text-[#41B3A2] text-sm mb-2">
+              <p className="text-[#41B3A2] text-sm mb-2 dark:text-white">
                 Category: {food.foodCategory}
               </p>
 
       
               <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-[#0D7C66]">
+                <span className="text-lg font-semibold text-[#0D7C66] dark:text-white">
                   Sold: {food.purchaseCount}
                 </span>
-                <span className="text-lg font-semibold text-[#0D7C66]">
+                <span className="text-lg font-semibold text-[#0D7C66] dark:text-white">
                   Price: ${food.price}
                 </span>
               </div>

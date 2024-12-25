@@ -36,12 +36,12 @@ const AllFood = () => {
       </div>
       {/* Search */}
       <div className="w-6/12 mx-auto mt-5">
-        <label className="input input-bordered flex items-center gap-2">
+        <label className="input input-bordered flex items-center gap-2 ">
           <input
             onChange={handleSearch}
             type="text"
             className="grow"
-            placeholder="Search"
+            placeholder="Search Your Food Here"
           />
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -78,19 +78,19 @@ const AllFood = () => {
 
             {/* Food Info */}
             <div className="flex flex-col">
-              <h3 className="text-xl font-semibold text-[#0D7C66] mb-2">
+              <h3 className="text-xl font-semibold text-[#0D7C66] mb-2 dark:text-white">
                 {food.foodName}
               </h3>
-              <p className="text-[#41B3A2] text-sm mb-2">
+              <p className="text-[#41B3A2] text-sm mb-2  dark:text-white">
                 Category: {food.foodCategory}
               </p>
 
               {/* Quantity */}
               <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-[#0D7C66]">
+                <span className="text-lg font-semibold text-[#0D7C66]  dark:text-white">
                   Quantity: {food.quantity}
                 </span>
-                <span className="text-lg font-semibold text-[#0D7C66]">
+                <span className="text-lg font-semibold text-[#0D7C66]  dark:text-white">
                   Price: ${food.price}
                 </span>
               </div>

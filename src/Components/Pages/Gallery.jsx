@@ -27,7 +27,7 @@ const Gallery = () => {
   };
 
   return (
-    <div className=" py-10">
+    <div className="">
 
         <div>
 <div

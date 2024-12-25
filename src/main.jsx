@@ -18,6 +18,7 @@ import MyOrders from "./Components/Pages/MyOrders";
 import UpdatePage from "./Components/Pages/UpdatePage";
 import TopFood from "./Components/MainLayOut/TopFood";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
+import ThemeProvider from "./Components/Provider/ThemeProvider";
 
 const router = createBrowserRouter([
   {
@@ -30,43 +31,61 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-         path:'addFood',
-         element:<PrivateRoute><AddFood></AddFood></PrivateRoute>
+        path: "addFood",
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'updateFood/:id',
-        element:<UpdatePage></UpdatePage>
+        path: "updateFood/:id",
+        element: <UpdatePage></UpdatePage>,
       },
       {
         path: "allFood",
         element: <AllFood></AllFood>,
-        loader:()=>fetch(`${import.meta.env.VITE_base_URL}/foods`)
+        loader: () => fetch(`${import.meta.env.VITE_base_URL}/foods`),
       },
       {
-        path:'topFood',
-        element:<TopFood></TopFood>
+        path: "topFood",
+        element: <TopFood></TopFood>,
       },
       {
         path: "gallery",
         element: <Gallery></Gallery>,
       },
       {
-        path:'singleFoodPage/:id',
-        element:<SingleFoodPage></SingleFoodPage>,
-        loader:({params})=>fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`)
+        path: "singleFoodPage/:id",
+        element: <SingleFoodPage></SingleFoodPage>,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`),
       },
       {
-        path:'foodPurchase/:id',
-        element:<PrivateRoute><FoodPurchase></FoodPurchase></PrivateRoute>,
-        loader:({params})=>fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`)
+        path: "foodPurchase/:id",
+        element: (
+          <PrivateRoute>
+            <FoodPurchase></FoodPurchase>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_base_URL}/foods/${params.id}`),
       },
       {
-        path:'myFood',
-        element:<PrivateRoute><MyFood></MyFood></PrivateRoute>
+        path: "myFood",
+        element: (
+          <PrivateRoute>
+            <MyFood></MyFood>
+          </PrivateRoute>
+        ),
       },
       {
-        path:'myOrders',
-        element:<PrivateRoute><MyOrders></MyOrders></PrivateRoute>
+        path: "myOrders",
+        element: (
+          <PrivateRoute>
+            <MyOrders></MyOrders>
+          </PrivateRoute>
+        ),
       },
       {
         path: "login",
@@ -82,8 +101,10 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>
 );

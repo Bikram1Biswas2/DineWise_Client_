@@ -3,11 +3,21 @@ import './Navbar.css';
 import { SiCodechef } from "react-icons/si";
 import { useContext, useState, useEffect, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { ThemeContext } from "../../Provider/ThemeProvider";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const{theme,setTheme}=useContext(ThemeContext)
+
+
+
+  const handleChangeTheme = () => {
+    document.documentElement.classList.toggle('dark');
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const handleDropdownToggle = () => {
     setDropdownOpen(!dropdownOpen);
@@ -36,7 +46,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-[#F1F8E8] backdrop-blur-lg bg-opacity-80 fixed top-0 left-0 w-full z-50">
+    <div className="bg-[#F1F8E8] backdrop-blur-lg bg-opacity-80 fixed top-0 left-0 w-full z-50 dark:bg-base-200">
       <div className="navbar w-11/12 mx-auto">
         {/* Navbar Start */}
         <div className="navbar-start">
@@ -77,6 +87,10 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">
             {links}
           </ul>
+        </div>
+        {/* theme */}
+        <div onClick={handleChangeTheme}>
+          {theme==='light'? <FaMoon></FaMoon>: <FaSun></FaSun>}
         </div>
 
         {/* Navbar End */}
@@ -139,7 +153,7 @@ const Navbar = () => {
                     <li>
                       <button
                         onClick={logOut}
-                        className="block md:hidden w-full text-left px-4 py-2 hover:bg-gray-100"
+                        className="block md:hidden w-full text-left px-4 py-2 hover:bg-gray-100 "
                       >
                         Logout
                       </button>
@@ -149,7 +163,7 @@ const Navbar = () => {
               )}
             </div>
           ) : (
-            <Link to="/login" className="btn bg-[#55AD9B]">
+            <Link to="/login" className="btn bg-[#55AD9B] ">
               Login
             </Link>
           )}
