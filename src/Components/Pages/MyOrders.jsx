@@ -3,18 +3,20 @@ import axios from "axios";
 import { FaTrashAlt } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyOrders = () => {
   const [orders, setOrders] = useState([]);
   const { user } = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
+  const axiosSecure = useAxiosSecure()
 
   useEffect(() => {
     const fetchOrders = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_base_URL}/myOrders/${user?.email}`
+        const response = await axiosSecure.get(
+          `/myOrders/${user?.email}`
         );
         setOrders(response.data);
       } catch (error) {

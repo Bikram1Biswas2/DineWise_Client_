@@ -3,12 +3,14 @@ import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const FoodPurchase = () => {
   const food = useLoaderData(); 
   const [quantity, setQuantity] = useState(1);
   const { user } = useContext(AuthContext); 
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure()
 
   const handlePurchase = async (e) => {
     e.preventDefault();
@@ -23,8 +25,8 @@ const FoodPurchase = () => {
     };
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_base_URL}/purchase`,
+      const response = await axiosSecure.post(
+        `/purchase`,
         purchaseDetails
       );
 

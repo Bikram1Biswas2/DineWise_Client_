@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddFood = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure()
 
   const baseURL = import.meta.env.VITE_base_URL;
 
@@ -34,7 +36,7 @@ const AddFood = () => {
     console.log(newFood);
 
     try{
-        const response = await axios.post(`${baseURL}/foods`,newFood)
+        const response = await axiosSecure.post(`/foods`,newFood)
         if(response.data.insertedId){
             toast.success('Food added Successfully')
         }else{
