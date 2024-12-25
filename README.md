@@ -99,6 +99,8 @@ Axios: API calls.
 
 Moment.js: Date formatting.
 
+React-Helmet-Async: Page Title.
+
 SweetAlert2: User-friendly alerts and modals.
 
 UI/UX Enhancements:
