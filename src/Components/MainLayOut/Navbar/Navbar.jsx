@@ -89,9 +89,11 @@ const Navbar = () => {
           </ul>
         </div>
           {/* theme */}
-          <div onClick={handleChangeTheme} className="navbar-end">
+         <div  className="navbar-end">
+         <div onClick={handleChangeTheme}>
           {theme==='light'? <FaMoon></FaMoon>: <FaSun></FaSun>}
         </div>
+         </div>
 
         {/* Navbar End */}
         <div className="navbar-end flex items-center gap-4">
