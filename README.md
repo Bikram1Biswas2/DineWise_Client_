@@ -17,7 +17,7 @@ DineWise provides an engaging experience for both customers and restaurant staff
 
 #Live URL
 
-Visit the Live Site
+#->Visit the Live Site:https://dine-wise.netlify.app
 
 #Key Features
 
