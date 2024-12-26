@@ -88,8 +88,8 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        {/* theme */}
-        <div onClick={handleChangeTheme}>
+          {/* theme */}
+          <div onClick={handleChangeTheme} className="navbar-end">
           {theme==='light'? <FaMoon></FaMoon>: <FaSun></FaSun>}
         </div>
 
