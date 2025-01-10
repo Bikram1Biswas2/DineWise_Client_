@@ -6,7 +6,7 @@ import { TbSoup } from "react-icons/tb";
 const OurDailySpecials = () => {
   return (
     <div className="mt-10 w-11/12 mx-auto">
-        <div className="text-center space-y-3">
+        <div className="text-center space-y-3 w-3/4 mx-auto">
             <h2 className="text-3xl font-bold text-[#79D7BE] underline">Our Daily Specials</h2>
             <p className="text-lg text-gray-400">Indulge in our Daily Specials, where every dish is crafted with fresh, seasonal ingredients. Let DineWise's creative chefs surprise you with a new, mouthwatering meal every day!</p>
         </div>

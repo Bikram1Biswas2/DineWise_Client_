@@ -5,7 +5,7 @@ import { HiTrophy } from "react-icons/hi2";
 const Award = () => {
     return (
         <div className="mt-10 w-11/12 mx-auto">
-           <div className="text-center space-y-3">
+           <div className="text-center space-y-3 w-3/4 mx-auto mb-10">
            <h2 className="text-3xl font-bold text-[#79D7BE] underline">Our Awards</h2>
            <p className="text-lg text-gray-500">At DineWise, we take pride in our dedication to quality and creativity, earning recognition for our exceptional culinary experiences. Our awards reflect our commitment to delivering the best meals crafted with passion and precision.</p>
            </div>

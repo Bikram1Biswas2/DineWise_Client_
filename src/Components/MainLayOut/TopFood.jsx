@@ -20,12 +20,14 @@ const TopFood = () => {
   return (
     <div className="w-11/12 mx-auto mt-10 dark:text-white">
      
-      <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
+  <div className="w-3/4 mx-auto">
+  <h2 className="text-3xl font-bold text-center text-[#55AD9B] mb-6 underline">
         Top Selling Foods
       </h2>
       <p className="text-lg text-gray-400 text-center">
         Explore our Top Selling Foods, handpicked based on customer favorites and highest purchase counts, showcasing the best flavors just for you!
       </p>
+  </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         {topFoods.map((food) => (
           <div
