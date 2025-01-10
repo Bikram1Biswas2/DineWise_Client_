@@ -8,7 +8,7 @@ const OurDailySpecials = () => {
     <div className="mt-10 w-11/12 mx-auto">
       <div className="text-center space-y-3 w-3/4 mx-auto">
         <h2 className="text-3xl font-bold text-[#55AD9B] underline">Our Daily Specials</h2>
-        <p className="text-lg text-gray-400">
+        <p className="text-lg text-gray-400 dark:text-white">
           Indulge in our Daily Specials, where every dish is crafted with fresh, seasonal ingredients. Let DineWise's creative chefs surprise you with a new, mouthwatering meal every day!
         </p>
       </div>
@@ -26,9 +26,9 @@ const OurDailySpecials = () => {
             key={index}
             className="text-center space-y-3 p-6 rounded-lg bg-[#c8edd357] shadow-md hover:shadow-lg transition-shadow"
           >
-            <item.Icon className="w-14 h-14 mx-auto text-[#55AD9B]" />
-            <h2 className="font-mono text-2xl text-[#55AD9B]">{item.title}</h2>
-            <p className="font-serif text-gray-600">{item.description}</p>
+            <item.Icon className="w-14 h-14 mx-auto text-[#55AD9B] dark:text-white" />
+            <h2 className="font-mono text-2xl text-[#55AD9B] dark:text-white">{item.title}</h2>
+            <p className="font-serif text-gray-600 dark:text-white">{item.description}</p>
           </div>
         ))}
       </div>

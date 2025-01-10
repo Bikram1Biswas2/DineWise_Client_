@@ -27,7 +27,7 @@ const Promotional = () => {
                 Explore Menu
               </button>
             </Link>
-            <Link to="/specialOffers">
+            <Link to="/specialOffer">
               <button className="btn bg-white border-2 border-[#55AD9B] text-[#55AD9B] px-6 py-3 font-bold rounded-md hover:bg-[#55AD9B] hover:text-white transition-all">
                 Special Offers
               </button>

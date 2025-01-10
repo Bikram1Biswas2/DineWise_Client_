@@ -96,7 +96,7 @@ const MyOrders = () => {
             </thead>
             <tbody>
               {orders.map((order) => (
-                <tr key={order._id} className="border-b ">
+                <tr key={order._id} className="border-b hover:bg-slate-200 dark:hover:bg-gray-800 cursor-grab">
                   <td className="p-4">{order.foodName}</td>
                   <td className="p-4">${order.price}</td>
                   <td className="p-4">{order.buyerName}</td>

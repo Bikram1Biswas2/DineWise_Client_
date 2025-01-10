@@ -20,6 +20,7 @@ import TopFood from "./Components/MainLayOut/TopFood";
 import PrivateRoute from "./Components/Routes/PrivateRoute";
 import ThemeProvider from "./Components/Provider/ThemeProvider";
 import { HelmetProvider } from "react-helmet-async";
+import SpecialOffer from "./Components/Pages/SpecialOffer/SpecialOffer";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,10 @@ const router = createBrowserRouter([
             <MyOrders></MyOrders>
           </PrivateRoute>
         ),
+      },
+      {
+        path:'specialOffer',
+        element:<SpecialOffer></SpecialOffer>
       },
       {
         path: "login",
