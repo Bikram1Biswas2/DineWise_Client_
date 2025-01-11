@@ -4,7 +4,7 @@ import { SiCodechef } from "react-icons/si";
 import { useContext, useState, useEffect, useRef } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { ThemeContext } from "../../Provider/ThemeProvider";
-import { FaMoon, FaSun } from "react-icons/fa";
+import { FaArrowAltCircleDown, FaMoon, FaSun } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -42,6 +42,7 @@ const Navbar = () => {
       <li><NavLink to='/'>Home</NavLink></li>
       <li><NavLink to='/allFood'>All Food</NavLink></li>
       <li><NavLink to='/gallery'>Gallery</NavLink></li>
+      <li><NavLink to='/specialOffer'>Special Offers</NavLink></li>
     </div>
   );
 
@@ -99,11 +100,12 @@ const Navbar = () => {
         <div className="navbar-end flex items-center gap-4">
           {user ? (
             <div className="relative flex items-center gap-4" ref={dropdownRef}>
+              <FaArrowAltCircleDown className="text-xl" onClick={handleDropdownToggle}></FaArrowAltCircleDown>
               {/* User Profile */}
               {user.photoURL && (
                 <div
                   className="avatar cursor-pointer"
-                  onClick={handleDropdownToggle}
+                  
                 >
                   <div className="ring-primary ring-offset-base-100 w-12 rounded-full ring ring-offset-2">
                     <img

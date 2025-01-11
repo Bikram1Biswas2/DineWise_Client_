@@ -6,9 +6,11 @@ const AllFood = () => {
   const foods = useLoaderData();
   const [search, setSearch] = useState("");
   const [filteredFoods, setFilteredFoods] = useState(foods);
+  const [sortOrder, setSortOrder] = useState(""); // For sorting order
 
+  // Handle Search
   const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase(); 
+    const query = e.target.value.toLowerCase();
     setSearch(query);
 
     // Filter foods based on the search query
@@ -18,11 +20,25 @@ const AllFood = () => {
     setFilteredFoods(filtered);
   };
 
+  // Handle Sort
+  const handleSort = (order) => {
+    setSortOrder(order);
+
+    // Sort foods based on price
+    const sortedFoods = [...filteredFoods].sort((a, b) => {
+      if (order === "ascending") return a.price - b.price;
+      if (order === "descending") return b.price - a.price;
+      return 0;
+    });
+
+    setFilteredFoods(sortedFoods);
+  };
+
   return (
     <div>
-        <Helmet>
-            <title>DineWise | AllFood</title>
-        </Helmet>
+      <Helmet>
+        <title>DineWise | AllFood</title>
+      </Helmet>
       <div>
         <div
           className="hero min-h-40"
@@ -38,9 +54,9 @@ const AllFood = () => {
           </div>
         </div>
       </div>
-      {/* Search */}
-      <div className="w-6/12 mx-auto mt-5">
-        <label className="input input-bordered flex items-center gap-2 ">
+      {/* Search and Sort */}
+      <div className="w-6/12 mx-auto mt-5 flex items-center gap-4">
+        <label className="input input-bordered flex items-center gap-2 grow">
           <input
             onChange={handleSearch}
             type="text"
@@ -60,6 +76,14 @@ const AllFood = () => {
             />
           </svg>
         </label>
+        <select
+          onChange={(e) => handleSort(e.target.value)}
+          className="select select-bordered bg-[#41B3A2] text-white"
+        >
+          <option value="">Sort by Price</option>
+          <option value="ascending">Price: Low to High</option>
+          <option value="descending">Price: High to Low</option>
+        </select>
       </div>
       {filteredFoods.length === 0 && (
         <p className="text-center text-gray-500 mt-6">No food items found.</p>
@@ -85,16 +109,16 @@ const AllFood = () => {
               <h3 className="text-xl font-semibold text-[#0D7C66] mb-2 dark:text-white">
                 {food.foodName}
               </h3>
-              <p className="text-[#41B3A2] text-sm mb-2  dark:text-white">
+              <p className="text-[#41B3A2] text-sm mb-2 dark:text-white">
                 Category: {food.foodCategory}
               </p>
 
               {/* Quantity */}
               <div className="flex justify-between items-center">
-                <span className="text-lg font-semibold text-[#0D7C66]  dark:text-white">
+                <span className="text-lg font-semibold text-[#0D7C66] dark:text-white">
                   Quantity: {food.quantity}
                 </span>
-                <span className="text-lg font-semibold text-[#0D7C66]  dark:text-white">
+                <span className="text-lg font-semibold text-[#0D7C66] dark:text-white">
                   Price: ${food.price}
                 </span>
               </div>
